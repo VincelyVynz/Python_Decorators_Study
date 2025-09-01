@@ -53,11 +53,26 @@ def main():
         }
 
         if oper in operations:
-            try:
-                calc = operations[oper](a, b)
+            if oper == "div" and b == 0:
+                trying_zero_div = True
+                while trying_zero_div:
+                    print("You cannot divide by zero.")
+                    try:
+                        b = float(input("Please enter a non zero number: "))
+
+                    except ValueError:
+                        print("Please enter a non zero number.")
+                    else:
+                        operations[oper](a, b)
+                        trying_zero_div = False
+            else:
+                operations[oper](a, b)
                 do_calc = False
-            except ZeroDivisionError:
-                print("You can't divide by zero.")
+            # try:
+            #     calc = operations[oper](a, b)
+            #     do_calc = False
+            # except ZeroDivisionError:
+            #     print("You can't divide by zero.")
 
         else:
             print("Invalid operation. Try again.")
