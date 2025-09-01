@@ -4,7 +4,15 @@
 def log_calls(func):
     def wrapper(*args, **kwargs):
         print(f"The {func.__name__} function has been called and the arguments passed in are: {args}.")
-        print(func(*args, **kwargs))
+        try:
+            result = func(*args, **kwargs)
+            print(result)
+            return result
+        except ValueError:
+            print("Enter a number")
+        except ZeroDivisionError:
+            print("⚠️ Error ⚠️")
+            print("You can't divide by zero")
 
     return wrapper
 
@@ -53,27 +61,10 @@ def main():
         }
 
         if oper in operations:
-            if oper == "div" and b == 0:
-                trying_zero_div = True
-                while trying_zero_div:
-                    print("You cannot divide by zero.")
-                    try:
-                        b = float(input("Please enter a non zero number: "))
-
-                    except ValueError:
-                        print("Please enter a non zero number.")
-                    else:
-                        operations[oper](a, b)
-                        trying_zero_div = False
-            else:
-                operations[oper](a, b)
+            result = operations[oper](a, b)
+            if result is not None:
                 do_calc = False
-            # try:
-            #     calc = operations[oper](a, b)
-            #     do_calc = False
-            # except ZeroDivisionError:
-            #     print("You can't divide by zero.")
-
+            do_calc = False
         else:
             print("Invalid operation. Try again.")
 
