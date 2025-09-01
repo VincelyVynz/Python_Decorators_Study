@@ -14,3 +14,5 @@ def decorator_func(original_func):
 @decorator_func
 def original_func(a, b):
     pass
+
+# Multiple decorators can be stacked but might affect the behaviour based on the order of stacking
