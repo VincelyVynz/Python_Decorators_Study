@@ -3,7 +3,7 @@ from exception_handler_decorator import error_catcher
 from log_calls_decorator import log_calls
 
 
-@timer
+@log_calls
 @error_catcher
 def div(a, b):
     return a / b
