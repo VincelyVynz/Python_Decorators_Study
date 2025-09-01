@@ -44,4 +44,5 @@ This repository contains small but practical examples of Python decorators. Each
 
 ## 🚀 How to Run
 
-You can run any of the example files directly using Python:
+You can import any decorator file into your own Python scripts and apply the decorators to your functions.
+Alternatively, you can run the example files directly to see the decorators in action.
