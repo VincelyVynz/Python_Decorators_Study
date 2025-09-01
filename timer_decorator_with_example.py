@@ -16,3 +16,18 @@ def timer(func):
         print(f"Stopping timer\nTime taken: {time_elapsed:.4f} seconds")  # Prints time taken
         return result                                 # Returns what's returned by the function
     return wrapper
+
+# ------------------------------- Decorated Function (Example) ------------------------------- #
+
+#Example decorated function
+
+@timer
+def sleeping_fn():
+    sleeping_duration = int(input("Enter duration in seconds: "))
+    print(f"Start sleeping for {sleeping_duration} seconds")
+    time.sleep(sleeping_duration)
+    return f"Slept for {sleeping_duration} seconds"
+
+
+#calling the function to initiate process
+sleeping_fn()
