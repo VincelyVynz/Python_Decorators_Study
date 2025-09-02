@@ -18,7 +18,7 @@ def error_catcher(func):
     return wrapper
 
 
-# Example (Trying to divide by zero.
+# Example (Trying to divide by zero.)
 
 @error_catcher
 def divide(a, b):
